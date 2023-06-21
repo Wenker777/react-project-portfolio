@@ -1,0 +1,29 @@
+body{
+	color: white;
+}
+.main-screen__news-each{
+	background-color: #222222;
+	border: 1px solid rgb(81, 81, 81);
+	padding: 15px;
+	margin: 0 0 15px 0;
+	border-radius: 8px;
+	/* Свойство отвечающее за формирование тени 
+   8px - отступ по оси Х
+   10px - отступ по оси Y
+   5px - радиус размытия тения
+   2px - радиус распространения
+   rgba - функция формирующая цвет тени
+  */
+  box-shadow: 0 0 10px 3px rgba(86, 86, 86, 0.2);
+}
+.main-screen__news{
+	margin: 16px 13px 0 13px;
+}
+.main-screen__autor{
+	font-size: 18px;
+	margin-bottom: 20px;
+	font-weight: 500;
+}
+.main-screen__article{
+	font-style: italic;
+}

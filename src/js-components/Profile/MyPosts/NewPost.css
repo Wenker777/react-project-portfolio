@@ -1,0 +1,44 @@
+.main-screen__content-inputNews{
+margin: 15px 13px 0 0;
+}
+.main-screen__content-form{
+
+}
+.main-screen__content-form-wrapper{
+display: flex;
+flex-direction: row;
+max-width: 450px;
+
+}
+.main-screen__content-textarea{
+	border-radius: 10px 0 0 10px;
+	background-color: #222222;
+	border: 1px solid rgb(81, 81, 81);
+	color: white;
+	font-size: 16px;
+	width: 76.77%;
+	resize: none;
+	height: 40px;
+	padding: 7px;
+	transition-property: all;
+	transition-duration: 0.2s;
+	transition-timing-function: ease;
+
+}
+.main-screen__content-textarea:focus {
+	height: 100px;
+	transition-property: all;
+	transition-duration: 0.2s;
+	transition-timing-function: ease;
+}
+.main-screen__content-textarea::placeholder{
+
+}
+
+.main-screen__content-button{
+	width: 33.33%;
+	border-radius: 0 10px 10px 0;
+	max-height: 40px;
+	font-size: 16px;
+	color: #222222;
+}

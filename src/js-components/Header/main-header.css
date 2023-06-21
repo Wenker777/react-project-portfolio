@@ -1,0 +1,22 @@
+.main-screen__header{
+	grid-area: h;
+	padding: 0 0 0 13px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	max-height: 50px;
+}
+.main-screen__header-button-logo{
+	display: flex;
+	align-items: center;
+}
+.main-screen__header-logo{
+	max-height: 24px;
+}
+.main-screen__header p{
+	padding: 0 0 6px 9px;
+	color: #E1E3E6;
+	font-size: 22px;
+	font-weight: 500;
+	letter-spacing: 0.3px;
+}
