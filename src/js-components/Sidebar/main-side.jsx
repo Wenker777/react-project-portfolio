@@ -1,7 +1,9 @@
 import s from "./main-side.module.css"
 import {NavLink} from "react-router-dom";
-
-const Sidebar = () =>{
+import SideFriend from "./Friends/sideBarFriends";
+import React from 'react';
+const Sidebar = (props) =>{
+	let sideBarElements = props.sideBarElements.userInfo.map( s => <SideFriend name={s.name} ava={s.ava}/>)
 	return (
 		<div className={s["main-screen__sidebar"]}>
 			<div className={s["main-screen__sidebar-list"]}>
@@ -21,7 +23,18 @@ const Sidebar = () =>{
 				<NavLink to="/settings">Settings</NavLink>
 				</div>
 			</div>
+
+			<div className={s["main-screen__sidebar-friends"]}>
+			<div className={s['main-screen__sidebar-friends-title']}>
+				<p>Friends</p>
+			</div>
+			<div className={s["main-screen__sidebar-friends-wrapper"]}>
+			{sideBarElements}
+			</div>
 		</div>
+
+		</div>
+		
 	);
 }
 export default Sidebar;

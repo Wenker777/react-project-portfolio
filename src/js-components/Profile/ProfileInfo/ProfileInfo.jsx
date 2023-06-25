@@ -1,5 +1,5 @@
 import "../main-profile.css";
-
+import React from 'react';
 const ProfileInfo = (props) => {
 	return (
 		<div className="main-screen__content-profile">

@@ -42,9 +42,91 @@ a{
 .dialogs__item:last-child{
 	margin: 10px 0 0 0;
 }
+
+
+
 .dialogs__messages{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	max-width: 600px;
+	border-radius: 10px;
+	margin: 0 15px 0 0;
+	padding: 10px;
+	height: 436px;
+} 
 
-}
 .dialogs__message{
+	height: 50px;
+	display: flex;
+	border: 1px solid rgb(81, 81, 81);
+	border-radius: 10px;
+}
+
+.dialogs__imgMe{
+	width: 50px;
+	height: 50px;
+}
+.dialogs__imgMe img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 10px;
+}
+.dialogs__textMe{
+	padding: 18px 13px 0 15px;
+}
+.dialogs__textAnother{
 
 }
+.dialogs__textMe{
+	
+}
+
+
+
+
+
+.dialogs__messageWr{
+
+}
+
+.dialogs__messageForm{
+
+}
+
+.dialogs__messageTextWrapper{
+	display: flex;
+	height: 50px;
+	max-width: 580px;
+	margin-bottom: 50px;
+}
+
+.dialogs__messageText{
+	width: 85%;
+	min-width: 100px;
+	height: 50px;
+	border-radius: 10px 0 0 10px;
+	resize: none;
+	padding: 12px 0 0 7px;
+	background-color: #222222;
+	border: 1px solid rgb(81, 81, 81);
+	color: white;
+	font-size: 16px;
+	transition-property: all;
+	transition-duration: 0.2s;
+	transition-timing-function: ease;
+}
+.dialogs__messageText:focus{
+	height: 100px;
+	transition-property: all;
+	transition-duration: 0.2s;
+	transition-timing-function: ease;
+}
+.dialogs__messageButton{
+	font-size: 16px;
+	width: 15%;
+	min-width: 40px;
+	border-radius: 0 10px 10px 0;
+}
+
