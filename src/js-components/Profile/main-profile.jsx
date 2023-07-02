@@ -1,4 +1,4 @@
-import NewPost from "./MyPosts/NewPost";
+import NewPostContainer from "./MyPosts/NewPostContainer";
 import Post from "./MyPosts/Post/Post";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import "./main-profile.css";
@@ -8,7 +8,7 @@ const Content = (props) => {
 	return (
 		<div className="main-screen__content">
 			<ProfileInfo/>
-			<NewPost newPostText={props} addPost={props.addPost} updatePostText={props.updatePostText}/>
+			<NewPostContainer dispatch={props.dispatch} newPostText={props.profileElements.newPostText}/>
 			{ postElements }
 		</div>
 	);
