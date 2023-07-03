@@ -13,6 +13,7 @@ import Sidebar from "./js-components/Sidebar/main-side";
 
 import { Routes, Route } from 'react-router-dom';
 import DialogsContainer from './js-components/Dialogs/DialogsContainer';
+import UsersContainer from './js-components/AllFriends/AllFriendsContainer';
 
 
 function App(props) { 
@@ -26,12 +27,12 @@ function App(props) {
 						<Sidebar sideBarElements={props.state.sideBar}/>
 						<div className="main-screen__main-content">
 							<Routes>
-								<Route path='/profile' element={<Content profileElements={props.state.profilePage} dispatch={props.dispatch}/>} />{/*profileElements={props.state.profilePage} dispatch={props.dispatch} */}
+								<Route path='/profile' element={<Content profileElements={props.state.profilePage}/>} />{/*profileElements={props.state.profilePage} dispatch={props.dispatch} */}
 								<Route path='/dialogs/*' element={<DialogsContainer />} /> {/*dialogsElements={props.state.messagesPage} dispatch={props.dispatch} */}
-								
-								<Route path='/news' element={<News newsElements={props.state.newsPage}/>}/>{/* newsElements={props.state.newsPage}*/}
+								<Route path='/news' element={<News newsElements={props.state.newsPage}/>}/>
 								<Route path="/music" element={<Music/>}/>
 								<Route path="/settings" element={<Settings/>}/>
+								<Route path="/users" element={<UsersContainer/>}/>
 							</Routes>
 						</div>
 					</div>

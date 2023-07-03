@@ -13,21 +13,22 @@ let initialState = {
 	newMessage: ''
 };
 const messagesReducer = (state = initialState, action) => { // 
+	let stateCopy = {...state} // Сообщения могут отправляться без субскрайбера в index.js
 	switch (action.type) {
 		case 'UPDATE-MESSAGE-TEXT':
-			state.newMessage = action.newMessageText;
-
-			return state;
+			stateCopy.newMessage = action.newMessageText;
+			return stateCopy;
 
 		case 'ADD-MESSAGE':
+			stateCopy.messagesData = [...state.messagesData]
 			let newMessage = {
 				id: 3,
 				message: state.newMessage,
 			}
-			state.messagesData.push(newMessage);
-			state.newMessage = '';
+			stateCopy.messagesData.push(newMessage);
+			stateCopy.newMessage = '';
 
-			return state;
+			return stateCopy;
 
 		default:
 			return state;

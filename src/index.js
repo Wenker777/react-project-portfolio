@@ -8,12 +8,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-let renderEntireTree = (state) => {
+let renderEntireTree = () => {
 	root.render(
 		<React.StrictMode>
 			<BrowserRouter>
 				<Provider store={store}>
-					<App state={store.getState()} dispatch={store.dispatch.bind(store)} />
+					<App state={store.getState()}  /> {/*dispatch={store.dispatch.bind(store)} */}
 				</Provider>
 			</BrowserRouter>
 		</React.StrictMode>
@@ -22,8 +22,8 @@ let renderEntireTree = (state) => {
 renderEntireTree(store.getState());
 
 store.subscribe(() => {
-	let state = store.getState();
-	renderEntireTree(state);
+	// let state = store.getState();
+	renderEntireTree();
 });
 
 // If you want to start measuring performance in your app, pass a function

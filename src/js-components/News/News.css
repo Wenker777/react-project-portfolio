@@ -6,7 +6,7 @@ body{
 	border: 1px solid rgb(81, 81, 81);
 	padding: 15px;
 	margin: 0 0 15px 0;
-	border-radius: 8px;
+	/* border-radius: 8px; */
 	/* Свойство отвечающее за формирование тени 
    8px - отступ по оси Х
    10px - отступ по оси Y
@@ -14,7 +14,7 @@ body{
    2px - радиус распространения
    rgba - функция формирующая цвет тени
   */
-  box-shadow: 0 0 10px 3px rgba(86, 86, 86, 0.2);
+  box-shadow: 0 0 10px 1px rgba(86, 86, 86, 0.15);
 }
 .main-screen__news{
 	margin: 16px 13px 0 13px;

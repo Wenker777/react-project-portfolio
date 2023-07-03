@@ -1,4 +1,5 @@
 import './../News.css'
+import React from 'react';
 
 const EachNews = (props) =>{
 	return(

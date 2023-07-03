@@ -9,21 +9,31 @@ let initialState = {
 const profileReducer = (state = initialState, action) => { // Изначально под именем state пришел profilePage при удовлетворении условия if он преобразовывается и возвращается через тот-же state
 	// rerender происходит не здесь
 
-
+	let stateCopy;
 	switch (action.type) {
 		case 'UPDATE-POST-TEXT':
-			state.newPostText = action.newText;
-			return state;
+			stateCopy = {
+				...state,
+				newPostText: action.newText,
+			};
+			// stateCopy.newPostText = action.newText;
+			return stateCopy;
 
 		case 'ADD-POST':
+			stateCopy = {
+				...state,
+				postData: [...state.postData],
+				newPostText: {...state.newPostText},
+			};
+
 			let newPost = {
 				id: 3,
 				likes: 0,
 				message: state.newPostText,
-			}
-			state.postData.unshift(newPost);
-			state.newPostText = '';
-			return state;
+			}	
+				stateCopy.postData.unshift(newPost);
+				stateCopy.newPostText = '';
+			return stateCopy;
 
 		default:
 			return state;
@@ -31,14 +41,14 @@ const profileReducer = (state = initialState, action) => { // Изначальн
 }
 
 export let onPostChangeActionCreator = (textFromNewPost) => {
-	return {
+	return ({
 		type: 'UPDATE-POST-TEXT',
 		newText: textFromNewPost,
-	}
+})
 }
 export let addPostActionCreator = () => {
-	return {
+	return ({
 		type: 'ADD-POST'
-	}
+	})
 }
 export default profileReducer;

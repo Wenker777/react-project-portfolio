@@ -33,12 +33,12 @@ import { connect } from "react-redux";
 
 const mapStateToProps = (state) =>{  // Возвращает объект    // state - store.getState() это тоже самое, но библиотека коннект сама преобразовывает его в state
 	return {
-		dialogsElements: state.messagesPage.dialogsData.map(d => <DialogItem name={d.name} id={d.id} />),
+		dialogsElements: state.messagesPage.dialogsData.map(d => <DialogItem name={d.name} id={d.id} key={d.id}/> ),
 		/*Создаем новую переменную в которую присваиваем преобразование массива данных применяя метод .map 
 		далее объявляем стрелочную ф-ию => и пишем компоненту внутри неё прописываем атрибуты name & id которые достаем из названия ф-ии.
 		Далее просто вставляем новый массив в нужный участок JSX разметки
 		и он отобразит максимальное колличество элементов в случае dialogsData их будет 5*/
-		messagesElements: state.messagesPage.messagesData.map(m => <DialogMessage message={m.message} />),
+		messagesElements: state.messagesPage.messagesData.map(m => <DialogMessage message={m.message} key={m.id}/>),
 
 		newMessage: state.messagesPage,
 	}

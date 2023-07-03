@@ -1,6 +1,8 @@
 import EachNews from './EachNews/EachNews'
 import './News.css'
 import React from 'react';
+// import "../../css/nullstyle.css";
+
 const News = (props) =>{
 	console.log(props);
 	let newsElements = props.newsElements.newsData.map( n => <EachNews name={n.name} article={n.article}/>)

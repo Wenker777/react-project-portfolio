@@ -1,0 +1,61 @@
+.main-screen__all-friends{
+
+}
+.main-screen__friend-row{
+	display: flex;
+	background-color: #222222;
+	border: 1px solid rgb(81, 81, 81);
+	margin: 16px 15px 0 0 ;
+	box-shadow: 0 0 10px 1px rgba(86, 86, 86, 0.15);
+}
+.main-screen__friend-IF{
+display: flex;
+flex-direction: column;
+margin: 15px;
+}
+.main-screen__friend-image{
+width: 75px;
+height: 75px;
+overflow: hidden;
+}
+.main-screen__friend-image img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.main-screen__friend-following{
+	max-width: 75px;
+	margin-top: 3px;
+}
+
+
+
+
+.main-screen__NameStatusLocation{
+display: flex;
+justify-content: space-between;
+margin: 15px 15px 15px 0;
+padding: 10px;
+width: 100%;
+min-width: 250px;
+}
+.main-screen__NameStatus{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.main-screen__Name{
+	font-size: 18px;
+}
+.main-screen__Status{
+	color: rgb(185, 185, 185);
+}
+.main-screen__Location{
+	font-size: 18px;
+}
+.main-screen__Location-country{
+	
+}
+.main-screen__Location-city{
+	margin: 15px 0 0 0;
+}

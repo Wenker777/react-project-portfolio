@@ -1,5 +1,6 @@
 import "./NewPost.css"
 import React from 'react';
+
 const NewPost = (props) => {
 let onPostChange = (e) =>{
 	let textFromNewPost = e.target.value;
