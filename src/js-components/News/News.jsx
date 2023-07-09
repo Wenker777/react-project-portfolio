@@ -1,7 +1,6 @@
 import EachNews from './EachNews/EachNews'
 import './News.css'
 import React from 'react';
-// import "../../css/nullstyle.css";
 
 const News = (props) =>{
 	console.log(props);

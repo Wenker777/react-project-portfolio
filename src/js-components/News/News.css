@@ -14,7 +14,8 @@ body{
    2px - радиус распространения
    rgba - функция формирующая цвет тени
   */
-  box-shadow: 0 0 10px 1px rgba(86, 86, 86, 0.15);
+  /* box-shadow: 0 0 10px 1px rgba(86, 86, 86, 0.15); */
+	box-shadow: 0 0 30px 8px rgba(86, 86, 86, 1);
 }
 .main-screen__news{
 	margin: 16px 13px 0 13px;

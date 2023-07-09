@@ -1,26 +1,41 @@
 import React from "react";
 import Users from "./AllFriends";
 import { connect } from "react-redux";
-import { followAC, setUsersAC, unfollowAC } from "../../redux/users-reducer";
+import { follow, setUsers, unfollow, setCurrentPage, setTotalUsersPage, isFetching } from "../../redux/users-reducer";
+import { getByDisplayValue } from "@testing-library/react";
 
 let mapStateToProps = (state) =>{
 	return{
-		users: state.usersPage.users
+		users: state.usersPage.users,
+		pageSize: state.usersPage.pageSize,
+		totalUsersCount: state.usersPage.totalUsersCount,
+		currentPage: state.usersPage.currentPage,
+		isFetching: state.usersPage.isFetching,
 	}
 }
-let mapDispatchToProps = (dispatch) =>{
-	return{
-		follow: (userId) =>{
-			dispatch(followAC(userId));
-		},
-		unfollow: (userId) =>{
-			dispatch(unfollowAC(userId));
-		},
-		setUsers: (users) =>{
-			dispatch(setUsersAC(users));
-		}
-	}
-}
+// let mapDispatchToProps = (dispatch) =>{
+// 	return{
+// 		follow: (userId) =>{
+// 			dispatch(follow(userId));
+// 		},
+// 		unfollow: (userId) =>{
+// 			dispatch(unfollow(userId));
+// 		},
+// 		setUsers: (users) =>{
+// 			dispatch(setUsers(users));
+// 		},
+// 		setCurrentPage: (currentPage) =>{
+// 			dispatch(setCurrentPage(currentPage))
+// 		},
+// 		setTotalUsersPage: (totalCount) =>{
+// 			dispatch(setTotalUsersPage(totalCount))
+// 		},
+// 		setIsFetching: (toggle) =>{
+// 			dispatch(isFetching(toggle))
+// 		},
+// 	}
+// }
 
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users);
+const UsersContainer = connect(mapStateToProps, { follow, setUsers, unfollow, setCurrentPage, setTotalUsersPage, setIsFetching: isFetching, })(Users);
+
 export default UsersContainer;

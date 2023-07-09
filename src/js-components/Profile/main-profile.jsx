@@ -6,7 +6,7 @@ import "./main-profile.css";
 import React from 'react';
 
 const Content = (props) => {
-	let postElements = props.profileElements.postData.map( p => <Post likes={p.likes} message={p.message} key={p.id}/>)
+	let postElements = props.profileElements.postData.map( p => <Post likes={p.likes} message={p.message}/>)
 	return (
 		<div className="main-screen__content">
 			<ProfileInfo/>

@@ -5,7 +5,7 @@
 	display: flex;
 	background-color: #222222;
 	border: 1px solid rgb(81, 81, 81);
-	margin: 16px 15px 0 0 ;
+	margin: 16px 15px 16px 0 ;
 	box-shadow: 0 0 10px 1px rgba(86, 86, 86, 0.15);
 }
 .main-screen__friend-IF{
@@ -58,4 +58,17 @@ min-width: 250px;
 }
 .main-screen__Location-city{
 	margin: 15px 0 0 0;
+}
+
+.main-screen__page.selected{
+	font-weight: bold;
+	font-size: 16px;
+}
+.main-screen__page{
+	margin: 0 10px;
+	cursor: pointer;
+}
+.main-screen__page-number-loader{
+	width: 30px;
+	height: 30px;
 }
