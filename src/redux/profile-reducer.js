@@ -3,7 +3,8 @@ let initialState = {
 		{ id: 1, likes: 15, message: 'Hello, what`s your name and how old are you?' },
 		{ id: 2, likes: 20, message: 'Hi, my name is Kerim and i`m 20 y.o.' },
 	],
-	newPostText: ''
+	newPostText: '',
+	profile: null,
 }
 
 const profileReducer = (state = initialState, action) => { // Изначально под именем state пришел profilePage при удовлетворении условия if он преобразовывается и возвращается через тот-же state
@@ -35,6 +36,11 @@ const profileReducer = (state = initialState, action) => { // Изначальн
 				stateCopy.newPostText = '';
 			return stateCopy;
 
+
+			case 'SET-USER-PROFILE':
+			return {...state, profile: action.profile}
+
+
 		default:
 			return state;
 	}
@@ -49,6 +55,13 @@ export let onPostChangeActionCreator = (textFromNewPost) => {
 export let addPostActionCreator = () => {
 	return ({
 		type: 'ADD-POST'
+	})
+}
+
+export let setUserProfile = (profile) => {
+	return ({
+		type: 'SET-USER-PROFILE', 
+		profile
 	})
 }
 export default profileReducer;

@@ -7,11 +7,11 @@ import React from 'react';
 import Header from "./js-components/Header/main-header";
 import Music from "./js-components/Music/Music";
 import News from "./js-components/News/News";
-import Content from "./js-components/Profile/main-profile";
+import ProfileContainer from "./js-components/Profile/main-profileContainer";
 import Settings from "./js-components/Settings/Settings";
 import Sidebar from "./js-components/Sidebar/main-side";
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route  } from 'react-router-dom';
 import DialogsContainer from './js-components/Dialogs/DialogsContainer';
 import UsersContainer from './js-components/AllFriends/AllFriendsContainer';
 
@@ -27,7 +27,7 @@ function App(props) {
 						<Sidebar sideBarElements={props.state.sideBar}/>
 						<div className="main-screen__main-content">
 							<Routes>
-								<Route path='/profile' element={<Content profileElements={props.state.profilePage}/>} />{/*profileElements={props.state.profilePage} dispatch={props.dispatch} */}
+								<Route path='/profile/:userId?' element={<ProfileContainer profileElements={props.state.profilePage}/>} />{/*profileElements={props.state.profilePage} dispatch={props.dispatch} */}
 								<Route path='/dialogs/*' element={<DialogsContainer />} /> {/*dialogsElements={props.state.messagesPage} dispatch={props.dispatch} */}
 								<Route path='/news' element={<News newsElements={props.state.newsPage}/>}/>
 								<Route path="/music" element={<Music/>}/>
