@@ -1,10 +1,10 @@
 import "./main-profile.css";
 import React, { useEffect } from 'react';
-import { setUserProfile } from "../../redux/profile-reducer";
+import { setUserProfile, getCurrentIdThunkCreator } from "../../redux/profile-reducer";
 import Profile from "./main-profile";
 import { connect } from "react-redux";
-import axios from "axios";
 import { useParams } from "react-router-dom";
+import { usersAPI } from "../../API/api";
 
 
 const ProfileContainer = (props) => {
@@ -14,10 +14,7 @@ const ProfileContainer = (props) => {
 		currentUserId = 2;
 	}
 		useEffect(() => {
-		axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${currentUserId}`)
-		.then(response => {
-		props.setUserProfile(response.data);
-	})
+			props.getCurrentIdThunkCreator(currentUserId);
 	}, [currentUserId])
 
 	
@@ -33,4 +30,4 @@ let mapStateToProps = ( state ) => ({
 
 
 
-export default connect (mapStateToProps, {setUserProfile})(ProfileContainer);
+export default connect (mapStateToProps, {setUserProfile, getCurrentIdThunkCreator})(ProfileContainer);

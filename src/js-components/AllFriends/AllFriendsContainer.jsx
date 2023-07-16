@@ -1,7 +1,7 @@
 import React from "react";
 import Users from "./AllFriends";
 import { connect } from "react-redux";
-import { follow, setUsers, unfollow, setCurrentPage, setTotalUsersPage, isFetching } from "../../redux/users-reducer";
+import { follow, setUsers,getUsersThunkCreator, unfollow, setCurrentPage, setTotalUsersPage, isFetching, toggleFollowingProgress } from "../../redux/users-reducer";
 import { getByDisplayValue } from "@testing-library/react";
 
 let mapStateToProps = (state) =>{
@@ -11,6 +11,7 @@ let mapStateToProps = (state) =>{
 		totalUsersCount: state.usersPage.totalUsersCount,
 		currentPage: state.usersPage.currentPage,
 		isFetching: state.usersPage.isFetching,
+
 	}
 }
 // let mapDispatchToProps = (dispatch) =>{
@@ -36,6 +37,7 @@ let mapStateToProps = (state) =>{
 // 	}
 // }
 
-const UsersContainer = connect(mapStateToProps, { follow, setUsers, unfollow, setCurrentPage, setTotalUsersPage, setIsFetching: isFetching, })(Users);
+const UsersContainer = connect(mapStateToProps, { follow, unfollow, setCurrentPage, 
+	 getUsersThunkCreator})(Users);
 
 export default UsersContainer;

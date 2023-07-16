@@ -1,3 +1,4 @@
+import { usersAPI } from "../API/api";
 let initialState = {
 	postData: [
 		{ id: 1, likes: 15, message: 'Hello, what`s your name and how old are you?' },
@@ -64,4 +65,13 @@ export let setUserProfile = (profile) => {
 		profile
 	})
 }
+
+
+export const getCurrentIdThunkCreator = (currentUserId) => (dispatch) => {
+	usersAPI.getCurrentId(currentUserId)
+		.then(data => {
+		dispatch(setUserProfile(data));
+	})
+}
+
 export default profileReducer;

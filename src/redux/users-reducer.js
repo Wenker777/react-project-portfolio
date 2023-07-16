@@ -1,3 +1,4 @@
+import { usersAPI } from "../API/api"
 let initialState = {
 	users: [ ],
 	pageSize: 20,
@@ -9,7 +10,6 @@ let initialState = {
 const usersReducer = (state = initialState, action) => { // Изначально под именем state пришел profilePage при удовлетворении условия if он преобразовывается и возвращается через тот-же state
 	// rerender происходит не здесь
 
-	// let stateCopy;
 	switch (action.type) {
 		case 'SET-USERS':
 			return{
@@ -60,6 +60,7 @@ const usersReducer = (state = initialState, action) => { // Изначально
 				return{
 					...state, isFetching: action.toggle
 				} 
+
 				
 		default:
 			return state;
@@ -107,5 +108,15 @@ export let isFetching = (toggle) => {
 	
 }
 
+export const getUsersThunkCreator = (currentPage, pageSize) => (dispatch) => {
+
+	dispatch(isFetching(true));
+		usersAPI.getUsers(currentPage, pageSize).then(data => { //page - номер отображаемой страницы, count - кол-во отображаемых юзеров или то как называется pageSize в апишке
+			dispatch(setCurrentPage(currentPage));
+			dispatch(isFetching(false));
+			dispatch(setUsers(data.items));
+			dispatch(setTotalUsersPage(data.totalCount));
+		})
+}
 
 export default usersReducer;
