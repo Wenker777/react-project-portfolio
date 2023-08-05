@@ -28,3 +28,7 @@ body{
 .main-screen__article{
 	font-style: italic;
 }
+
+.example{
+	border: 1px solid red;
+}

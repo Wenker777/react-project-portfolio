@@ -68,6 +68,7 @@ export let setUserProfile = (profile) => {
 
 
 export const getCurrentIdThunkCreator = (currentUserId) => (dispatch) => {
+	
 	usersAPI.getCurrentId(currentUserId)
 		.then(data => {
 		dispatch(setUserProfile(data));

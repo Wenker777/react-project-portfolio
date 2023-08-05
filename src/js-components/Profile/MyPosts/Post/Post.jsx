@@ -1,7 +1,8 @@
 import "./Post.css"
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Post = (props) => {
+
 	return (
 		<div className="main-screen__content-post">
 			<div className="main-screen__content-post-at">

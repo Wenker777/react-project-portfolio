@@ -14,6 +14,7 @@ import Sidebar from "./js-components/Sidebar/main-side";
 import { Routes, Route  } from 'react-router-dom';
 import DialogsContainer from './js-components/Dialogs/DialogsContainer';
 import UsersContainer from './js-components/AllFriends/AllFriendsContainer';
+import Login from './js-components/login/login';
 
 
 function App(props) { 
@@ -33,6 +34,7 @@ function App(props) {
 								<Route path="/music" element={<Music/>}/>
 								<Route path="/settings" element={<Settings/>}/>
 								<Route path="/users" element={<UsersContainer/>}/>
+								<Route path="/login" element={<Login/>}/>
 							</Routes>
 						</div>
 					</div>

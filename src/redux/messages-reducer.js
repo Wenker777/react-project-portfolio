@@ -11,6 +11,7 @@ let initialState = {
 		{ id: 2, message: 'Hi, i`m good' },
 	],
 	newMessage: ''
+	
 };
 const messagesReducer = (state = initialState, action) => { // 
 	let stateCopy = {...state} // Сообщения могут отправляться без субскрайбера в index.js

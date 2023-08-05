@@ -1,7 +1,6 @@
 import "./NewPost.css"
-import React from 'react';
-
-const NewPost = (props) => {
+import React, { useEffect } from 'react';
+const NewPost = React.memo(props => {
 let onPostChange = (e) =>{
 	let textFromNewPost = e.target.value;
 	props.onPostChangeActionCreator(textFromNewPost);
@@ -21,7 +20,7 @@ let addPost = () =>{
 			</div>
 		</div>
 	);
-}
+})
 
 export default NewPost;
 

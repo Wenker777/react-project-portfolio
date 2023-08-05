@@ -1,7 +1,7 @@
 import React from "react";
 import Users from "./AllFriends";
 import { connect } from "react-redux";
-import { follow, setUsers,getUsersThunkCreator, unfollow, setCurrentPage, setTotalUsersPage, isFetching, toggleFollowingProgress } from "../../redux/users-reducer";
+import { follow, getUsersThunkCreator, unfollow, removeUser, sortUsers} from "../../redux/users-reducer";
 import { getByDisplayValue } from "@testing-library/react";
 
 let mapStateToProps = (state) =>{
@@ -37,7 +37,7 @@ let mapStateToProps = (state) =>{
 // 	}
 // }
 
-const UsersContainer = connect(mapStateToProps, { follow, unfollow, setCurrentPage, 
+const UsersContainer = connect(mapStateToProps, { follow, unfollow, removeUser, sortUsers,
 	 getUsersThunkCreator})(Users);
 
 export default UsersContainer;

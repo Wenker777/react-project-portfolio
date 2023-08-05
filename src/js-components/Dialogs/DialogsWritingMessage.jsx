@@ -5,8 +5,8 @@ const WritingMessage = (props) => {
 
 	let newMessage = (e) =>{
 		let newText =  e.target.value;
-		let action = newMessageActionCreator(newText);
-		props.dispatch(action);
+		// let action = newMessageActionCreator(newText);
+		props.dispatch(newMessageActionCreator(newText));
 	}
 
 	let addMessage = () =>{

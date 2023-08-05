@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import SideFriend from "./Friends/sideBarFriends";
 import React from 'react';
 const Sidebar = (props) =>{
-	let sideBarElements = props.sideBarElements.userInfo.map( s => <SideFriend name={s.name} ava={s.ava}/>)
+	let sideBarElements = props.sideBarElements.userInfo.map( s => <SideFriend key={s.id} name={s.name} ava={s.ava}/>)
 	return (
 		<div className={s["main-screen__sidebar"]}>
 			<div className={s["main-screen__sidebar-list"]}>

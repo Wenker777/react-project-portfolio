@@ -1,10 +1,11 @@
 import "./main-profile.css";
 import React, { useEffect } from 'react';
-import { setUserProfile, getCurrentIdThunkCreator } from "../../redux/profile-reducer";
+import { getCurrentIdThunkCreator } from "../../redux/profile-reducer";
 import Profile from "./main-profile";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { usersAPI } from "../../API/api";
+import Preloader from "../common/Preloader";
 
 
 const ProfileContainer = (props) => {
@@ -12,7 +13,7 @@ const ProfileContainer = (props) => {
 	let currentUserId = params.userId;
 	if (!currentUserId){
 		currentUserId = 2;
-	}
+	} 
 		useEffect(() => {
 			props.getCurrentIdThunkCreator(currentUserId);
 	}, [currentUserId])
@@ -30,4 +31,4 @@ let mapStateToProps = ( state ) => ({
 
 
 
-export default connect (mapStateToProps, {setUserProfile, getCurrentIdThunkCreator})(ProfileContainer);
+export default connect (mapStateToProps, {getCurrentIdThunkCreator})(ProfileContainer);

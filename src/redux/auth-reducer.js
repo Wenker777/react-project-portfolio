@@ -1,17 +1,19 @@
-import { usersAPI } from "../API/api";
+import { authAPI } from "../API/api";
 let initialState = {
 	userId: null,
 	email: null,
 	login: null,
+	isAuth: false,
 }
 
 const authReducer = (state = initialState, action) => { 
 
 	switch (action.type) {
-		case 'UPDATE-POST-TEXT':
+		case 'SET-USER-DATA':
 			return{
 				...state,
-				...action.data
+				...action.data,
+				isAuth: true,
 			}
 
 		default:
@@ -26,10 +28,10 @@ export let setAuthUserData = (userId, email, login) => {
 })
 }
 
-export const getAuthMeThunkCreator = (dispatch) => {
-	usersAPI.getAuthData()
+export const getAuthMeThunkCreator = (count) => (dispatch) => {
+	console.log(count)
+	authAPI.getAuthData()
 	.then(data => {
-		console.log(data.data)
 		if(data.resultCode === 0){
 			let {id, email, login} = data.data;
 			dispatch(setAuthUserData(id, email, login));

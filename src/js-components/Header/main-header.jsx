@@ -1,26 +1,15 @@
 import "./main-header.css"
 import {NavLink} from "react-router-dom";
 import React, { useEffect, useState } from 'react';
-import { setAuthUserData, getAuthMeThunkCreator } from "../../redux/auth-reducer";
-
+import {setAuthUserData, getAuthMeThunkCreator } from "../../redux/auth-reducer";
+import { authAPI } from "../../API/api";
 import { connect } from "react-redux";
 
 const Header = (props) => {
-	let initialState = 0;
+	let initialState = false;
 	const [count, setCount] = useState(initialState);
-
 	useEffect(() => {
-		getAuthMeThunkCreator();
-	// 	usersAPI.getAuthData()
-	// 	.then(data => {
-	// 		console.log(data.data)
-	// 		if(data.resultCode === 0){
-	// 			let {id, email, login} = data.data;
-	// 			props.setAuthUserData(id, email, login);
-	// 		} else{
-	// 			console.log('Нужно авторизоваться')
-	// 		}
-	// })
+		props.getAuthMeThunkCreator(count);
 	})
 
 	return (
@@ -31,21 +20,18 @@ const Header = (props) => {
 			</NavLink>	
 			<div className="main-screen__header-login">
 				<NavLink to='/login'>
-				Login
+				<button onClick={() => setCount(prevCount => prevCount === false ? prevCount = true : prevCount = false)}>Header render - login</button>
 				</NavLink>
-				<button onClick={() => setCount(initialState)}>Сбросить</button>
-				<button onClick={() => setCount(prevCount => prevCount += 1)}>Прибавить</button>
-				<button onClick={() => setCount(prevCount => prevCount -= 1)}>Отнять</button>
-				Счёт: {count}
+				
 			</div>
 	 </header>
 	);
 
 }
 
-let mapStateToProps = (state) =>{
+let mapStateToProps = (state) =>({
 
-}
-export default connect (mapStateToProps, {setAuthUserData, getAuthMeThunkCreator})(Header);
+})
+export default connect (mapStateToProps, { setAuthUserData, getAuthMeThunkCreator})(Header);
 
 
