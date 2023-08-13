@@ -1,9 +1,11 @@
-// import s from "./Dialogs.module.css"
+import s from "./Dialogs.module.css"
 
 const DialogMessage = (props) => {
 	return (
-		<div>
-			{props.message}
+		<div className={s.message}>
+			<p>
+			{props.message}	
+			</p>
 		</div>
 	);
 }

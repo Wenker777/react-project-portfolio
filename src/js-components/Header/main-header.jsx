@@ -2,10 +2,9 @@ import "./main-header.css"
 import {NavLink} from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import {setAuthUserData, getAuthMeThunkCreator } from "../../redux/auth-reducer";
-import { authAPI } from "../../API/api";
 import { connect } from "react-redux";
 
-const Header = (props) => {
+const Header = React.memo((props) => {
 	let initialState = false;
 	const [count, setCount] = useState(initialState);
 	useEffect(() => {
@@ -19,15 +18,15 @@ const Header = (props) => {
 				<p>вконтакте</p>
 			</NavLink>	
 			<div className="main-screen__header-login">
-				<NavLink to='/login'>
-				<button onClick={() => setCount(prevCount => prevCount === false ? prevCount = true : prevCount = false)}>Header render - login</button>
-				</NavLink>
+				{/* <NavLink to='/login'> */}
+				<button onClick={() => setCount(prevCount => prevCount === false ? prevCount = true : prevCount = false)}>Header render - login</button> 
+				{/* </NavLink> */}
 				
 			</div>
 	 </header>
 	);
 
-}
+})
 
 let mapStateToProps = (state) =>({
 

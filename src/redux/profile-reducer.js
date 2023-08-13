@@ -12,13 +12,17 @@ const profileReducer = (state = initialState, action) => { // Изначальн
 	// rerender происходит не здесь
 
 	let stateCopy;
+	let spaceCounter = 0;
+	let letterCounter = 0;
 	switch (action.type) {
 		case 'UPDATE-POST-TEXT':
 			stateCopy = {
 				...state,
 				newPostText: action.newText,
 			};
-			// stateCopy.newPostText = action.newText;
+			
+		
+
 			return stateCopy;
 
 		case 'ADD-POST':
@@ -33,8 +37,17 @@ const profileReducer = (state = initialState, action) => { // Изначальн
 				likes: 0,
 				message: state.newPostText,
 			}	
+			for(let l of newPost.message){
+				letterCounter += 1;
+				if (l === ' '){
+					spaceCounter += 1;
+				}
+			}
+			if (letterCounter !== spaceCounter){
 				stateCopy.postData.unshift(newPost);
+			}
 				stateCopy.newPostText = '';
+				console.log(newPost.message)
 			return stateCopy;
 
 

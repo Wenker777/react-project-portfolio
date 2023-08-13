@@ -11,10 +11,12 @@ let initialState = {
 		{ id: 2, message: 'Hi, i`m good' },
 	],
 	newMessage: ''
-	
 };
 const messagesReducer = (state = initialState, action) => { // 
 	let stateCopy = {...state} // Сообщения могут отправляться без субскрайбера в index.js
+
+	let spaceCounter = 0;
+	let letterCounter = 0;
 	switch (action.type) {
 		case 'UPDATE-MESSAGE-TEXT':
 			stateCopy.newMessage = action.newMessageText;
@@ -26,7 +28,17 @@ const messagesReducer = (state = initialState, action) => { //
 				id: 3,
 				message: state.newMessage,
 			}
-			stateCopy.messagesData.push(newMessage);
+
+			for(let l of newMessage.message){
+				letterCounter += 1;
+				if (l === ' '){
+					spaceCounter += 1;
+				}
+			}
+			if (letterCounter !== spaceCounter){
+				stateCopy.messagesData.push(newMessage);
+			}
+			
 			stateCopy.newMessage = '';
 
 			return stateCopy;

@@ -15,14 +15,12 @@ const WritingMessage = (props) => {
 
 	return (
 		<div className={s.dialogs__messageWr}>
-			<form action="#" className={s.dialogs__messageForm}>
 				<div className={s.dialogs__messageTextWrapper}>
 					<textarea onChange={newMessage} className={s.dialogs__messageText} value={props.newMessage.newMessage}/>
 					<button onClick={addMessage} className={s.dialogs__messageButton}>
 						Send
 					</button>
 				</div>
-			</form>
 		</div>
 	);
 }

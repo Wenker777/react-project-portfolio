@@ -1,7 +1,8 @@
+import Preloader from "../common/Preloader";
 import s from "./Dialogs.module.css"
 import WritingMessage from "./DialogsWritingMessage";
 import React from "react";
-const Dialogs = React.memo((props) => {
+const Dialogs = (props) => {
 	return (
 		<div className={s.dialogs__row}>
 			<div className={s.dialogs__items}>
@@ -13,8 +14,9 @@ const Dialogs = React.memo((props) => {
 				</div>
 				<WritingMessage newMessage={props.newMessage} dispatch={props.dispatch}/>
 			</div>
+			<Preloader/>
 		</div>
 	);
-})
+}
 
 export default Dialogs;

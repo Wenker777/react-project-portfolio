@@ -53,7 +53,7 @@ a{
 	border-radius: 10px;
 	margin: 0 15px 0 0;
 	padding: 10px;
-	height: 436px;
+	min-height: 436px;
 } 
 
 .dialogs__message{
@@ -76,24 +76,24 @@ a{
 .dialogs__textMe{
 	padding: 18px 13px 0 15px;
 }
-.dialogs__textAnother{
 
+.message{
+	border: 1px solid rgb(86, 100, 125);
+	padding: 10px;
+	margin: 10px 0;
+	text-align: right;
+	word-wrap: break-word;
 }
-.dialogs__textMe{
-	
+.message:first-child{
+	border: 1px solid gray;
+	margin: 0 0 10px 0;
+	text-align: left;
 }
-
-
-
-
 
 .dialogs__messageWr{
 
 }
 
-.dialogs__messageForm{
-
-}
 
 .dialogs__messageTextWrapper{
 	display: flex;

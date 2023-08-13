@@ -171,9 +171,9 @@ export const getUsersThunkCreator = (currentPage, pageSize) => (dispatch) => {
 	dispatch(isFetching(true));
 	usersAPI.getUsers(currentPage, pageSize).then(data => { //page - номер отображаемой страницы, count - кол-во отображаемых юзеров или то как называется pageSize в апишке	
 		dispatch(setCurrentPage(currentPage));
-		dispatch(isFetching(false));
 		dispatch(setUsers(data.items));
 		dispatch(setTotalUsersPage(data.totalCount));
+		dispatch(isFetching(false));
 	})
 }
 

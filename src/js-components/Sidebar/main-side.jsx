@@ -14,6 +14,9 @@ const Sidebar = (props) =>{
 				<NavLink to="/dialogs ">Messages</NavLink>
 				</div>
 				<div className={s.item}>
+				<NavLink to="/users">Users</NavLink>
+			</div>
+				<div className={s.item}>
 				<NavLink to="/news">News</NavLink>
 				</div>
 				<div className={s.item}>
@@ -24,14 +27,14 @@ const Sidebar = (props) =>{
 				</div>
 			</div>
 
-			<div className={s["main-screen__sidebar-friends"]}>
+			{/* <div className={s["main-screen__sidebar-friends"]}>
 			<div className={s['main-screen__sidebar-friends-title']}>
 				<NavLink to="/users">Friends</NavLink>
 			</div>
 			<div className={s["main-screen__sidebar-friends-wrapper"]}>
 			{sideBarElements}
 			</div>
-		</div>
+		</div> */}
 
 		</div>
 		

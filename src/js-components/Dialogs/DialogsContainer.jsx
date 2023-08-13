@@ -16,6 +16,7 @@ const mapStateToProps = (state) =>{  // Возвращает объект    // 
 		messagesElements: state.messagesPage.messagesData.map(m => <DialogMessage key={m.id} message={m.message}/>),
 
 		newMessage: state.messagesPage,
+		isAuthing: state.auth.authentication,
 	}
 }
 
