@@ -4,9 +4,6 @@ import { getCurrentIdThunkCreator } from "../../redux/profile-reducer";
 import Profile from "./main-profile";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import { usersAPI } from "../../API/api";
-import Preloader from "../common/Preloader";
-
 
 const ProfileContainer = (props) => {
 	let params = useParams();

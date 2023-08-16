@@ -12,7 +12,7 @@ const authReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'SET-USER-DATA':
 			
-			if(!state.isAuth){
+			if(state.isAuth === false){
 				console.log('Нужно авторизоваться')
 			} else{console.log('Авторизация прошла успешно')}
 			return{
@@ -21,7 +21,6 @@ const authReducer = (state = initialState, action) => {
 				isAuth: true,
 			}
 		case 'TOGGLE-IS-AUTHENTICATING':
-			console.log(state.authentication)
 			return {
 				...state, authentication: action.toggle
 			}

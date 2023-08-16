@@ -19,29 +19,43 @@ const messagesReducer = (state = initialState, action) => { //
 	let letterCounter = 0;
 	switch (action.type) {
 		case 'UPDATE-MESSAGE-TEXT':
-			stateCopy.newMessage = action.newMessageText;
+			let newTextWithParagraph = '';
+			for(let i of action.newMessageText){
+					newTextWithParagraph += i;
+			}
+			if(action.paragraph){
+				newTextWithParagraph += "\n"
+			}
+			
+			stateCopy.newMessage = newTextWithParagraph;
+			
 			return stateCopy;
 
 		case 'ADD-MESSAGE':
 			stateCopy.messagesData = [...state.messagesData]
-			let newMessage = {
-				id: 3,
-				message: state.newMessage,
-			}
-
-			for(let l of newMessage.message){
+			for(let l of stateCopy.newMessage){
 				letterCounter += 1;
 				if (l === ' '){
 					spaceCounter += 1;
+				} 
+				else if (l === "\n"){
+					spaceCounter += 1;
 				}
 			}
-			if (letterCounter !== spaceCounter){
+			
+			let newMessage = {
+				id: 3,
+				message: stateCopy.newMessage,
+			}
+
+			if (letterCounter !== spaceCounter && letterCounter >= 1){
 				stateCopy.messagesData.push(newMessage);
 			}
 			
 			stateCopy.newMessage = '';
 
 			return stateCopy;
+			
 
 		default:
 			return state;
@@ -49,12 +63,15 @@ const messagesReducer = (state = initialState, action) => { //
 }
 
 
-export let newMessageActionCreator = (newText) => ({
+export let newMessageActionCreator = (newText, paragraph) => ({
 	type: 'UPDATE-MESSAGE-TEXT',
 	newMessageText: newText,
+	paragraph: paragraph,
 })
 export let addMessageActionCreator = () => ({
 	type: 'ADD-MESSAGE',
 })
+
+
 
 export default messagesReducer;

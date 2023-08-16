@@ -1,5 +1,5 @@
 import "./Post.css"
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const Post = (props) => {
 
@@ -7,14 +7,14 @@ const Post = (props) => {
 		<div className="main-screen__content-post">
 			<div className="main-screen__content-post-at">
 				<div className="main-screen__content-post-ava">
-					<img 
-					alt="" src="https://cs14.pikabu.ru/post_img/big/2023/02/13/8/1676295806139337963.png">
+					<img
+						alt="" src="https://cs14.pikabu.ru/post_img/big/2023/02/13/8/1676295806139337963.png">
 					</img>
 				</div>
 				<div className="main-screen__content-text">
-					<p>
-						{props.message}
-					</p>
+					{props.message.split('\n').map((text, index) => (
+						<p key={index}>{text}</p>
+					))}
 				</div>
 			</div>
 

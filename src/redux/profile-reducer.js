@@ -11,43 +11,50 @@ let initialState = {
 const profileReducer = (state = initialState, action) => { // Изначально под именем state пришел profilePage при удовлетворении условия if он преобразовывается и возвращается через тот-же state
 	// rerender происходит не здесь
 
-	let stateCopy;
+	let stateCopy= {...state};
 	let spaceCounter = 0;
 	let letterCounter = 0;
 	switch (action.type) {
 		case 'UPDATE-POST-TEXT':
-			stateCopy = {
-				...state,
-				newPostText: action.newText,
-			};
-			
-		
+			let newTextWithParagraph = '';
+			for(let i of action.newText){
+					newTextWithParagraph += i;
+			}
+			if(action.paragraph){
+				newTextWithParagraph += "\n"
+			}
 
+			stateCopy.newPostText = newTextWithParagraph;
 			return stateCopy;
 
 		case 'ADD-POST':
-			stateCopy = {
-				...state,
-				postData: [...state.postData],
-				newPostText: {...state.newPostText},
-			};
-
-			let newPost = {
-				id: 3,
-				likes: 0,
-				message: state.newPostText,
-			}	
-			for(let l of newPost.message){
+			stateCopy.postData = [...state.postData]
+			// stateCopy = {
+			// 	...state,
+			// 	postData: [...state.postData],
+			// 	newPostText: {...state.newPostText},
+			// };
+	
+			for(let l of stateCopy.newPostText){
 				letterCounter += 1;
 				if (l === ' '){
 					spaceCounter += 1;
+				} else if (l === "\n"){
+					spaceCounter += 1;
 				}
 			}
-			if (letterCounter !== spaceCounter){
+			let newPost = {
+				id: 3,
+				likes: 0,
+				message: stateCopy.newPostText,
+			}	
+
+
+			if (letterCounter !== spaceCounter && letterCounter >= 1){
 				stateCopy.postData.unshift(newPost);
 			}
 				stateCopy.newPostText = '';
-				console.log(newPost.message)
+				
 			return stateCopy;
 
 
@@ -60,10 +67,12 @@ const profileReducer = (state = initialState, action) => { // Изначальн
 	}
 }
 
-export let onPostChangeActionCreator = (textFromNewPost) => {
+export let onPostChangeActionCreator = (textFromNewPost, paragraph) => {
+	console.log(paragraph)
 	return ({
 		type: 'UPDATE-POST-TEXT',
 		newText: textFromNewPost,
+		paragraph: paragraph,
 })
 }
 export let addPostActionCreator = () => {
@@ -73,6 +82,9 @@ export let addPostActionCreator = () => {
 }
 
 export let setUserProfile = (profile) => {
+	console.log(
+		profile
+	);
 	return ({
 		type: 'SET-USER-PROFILE', 
 		profile

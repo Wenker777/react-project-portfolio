@@ -31,14 +31,14 @@
 .main-screen__content-text {
 	max-width: 400px;
 	padding: 5px 5px 5px 15px;
-	display: flex;
-	align-items: center;
+	/* display: flex;
+	align-items: center; */
 	word-wrap: break-word;
 }
 
 .main-screen__content-text p {
 	color: white;
-
+	line-height: 24px;
 }
 
 .main-screen__content-post-likes {

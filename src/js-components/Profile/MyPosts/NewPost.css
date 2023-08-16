@@ -20,6 +20,7 @@ max-width: 450px;
 	resize: none;
 	height: 40px;
 	padding: 7px;
+	line-height: 24px;
 	transition-property: all;
 	transition-duration: 0.2s;
 	transition-timing-function: ease;

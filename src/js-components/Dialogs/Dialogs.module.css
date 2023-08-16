@@ -79,10 +79,11 @@ a{
 
 .message{
 	border: 1px solid rgb(86, 100, 125);
-	padding: 10px;
+	padding: 5px 10px;
 	margin: 10px 0;
 	text-align: right;
 	word-wrap: break-word;
+	line-height: 24px;
 }
 .message:first-child{
 	border: 1px solid gray;
@@ -113,6 +114,7 @@ a{
 	border: 1px solid rgb(81, 81, 81);
 	color: white;
 	font-size: 16px;
+	line-height: 24px;
 	transition-property: all;
 	transition-duration: 0.2s;
 	transition-timing-function: ease;
